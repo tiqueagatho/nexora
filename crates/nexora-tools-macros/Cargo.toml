@@ -1,0 +1,16 @@
+[package]
+name = "nexora-tools-macros"
+version = "0.1.0"
+edition = "2021"
+description = "Proc macros for type-safe tool definitions"
+license = "MIT OR Apache-2.0"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = { version = "2", features = ["full"] }
+quote = "1"
+proc-macro2 = "1"
+schemars = "1.0"
+serde_json = "1.0"

@@ -1,0 +1,16 @@
+[package]
+name = "nexora-core"
+version = "0.1.0"
+edition = "2021"
+description = "Core traits and types for the Nexora LLM framework"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+async-trait = { workspace = true }
+thiserror = { workspace = true }
+schemars = { workspace = true }
+futures = { workspace = true }
+tracing = { workspace = true }
+reqwest = { workspace = true }

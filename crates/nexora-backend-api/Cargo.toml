@@ -1,0 +1,17 @@
+[package]
+name = "nexora-backend-api"
+version = "0.1.0"
+edition = "2021"
+description = "Cloud API backends (OpenAI, Anthropic) for Nexora"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+nexora-core = { path = "../nexora-core" }
+serde = { workspace = true }
+serde_json = { workspace = true }
+async-trait = { workspace = true }
+thiserror = { workspace = true }
+reqwest = { workspace = true }
+tokio = { workspace = true }
+futures = { workspace = true }
+tracing = { workspace = true }

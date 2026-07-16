@@ -1,0 +1,19 @@
+[package]
+name = "nexora-examples"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+nexora-core = { path = "../nexora-core" }
+nexora-tools = { path = "../nexora-tools" }
+nexora-tools-macros = { path = "../nexora-tools-macros" }
+nexora-graph = { path = "../nexora-graph" }
+nexora-backend-ollama = { path = "../nexora-backend-ollama" }
+nexora-backend-api = { path = "../nexora-backend-api" }
+tokio = { workspace = true }
+futures = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+schemars = { workspace = true }
+async-trait = { workspace = true }

@@ -1,0 +1,80 @@
+[package]
+name = "nexora"
+version = "0.1.0"
+edition = "2024"
+description = "Open-source LLM agent framework in Rust"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/user/nexora"
+
+[[bin]]
+name = "nexora"
+path = "src/main.rs"
+
+[workspace]
+resolver = "2"
+members = [
+    ".",
+    "crates/nexora-core",
+    "crates/nexora-tools",
+    "crates/nexora-tools-macros",
+    "crates/nexora-graph",
+    "crates/nexora-backend-ollama",
+    "crates/nexora-backend-api",
+    "crates/nexora-allocator",
+    "crates/nexora-examples",
+]
+default-members = [
+    ".",
+    "crates/nexora-core",
+    "crates/nexora-tools",
+    "crates/nexora-tools-macros",
+    "crates/nexora-graph",
+    "crates/nexora-backend-ollama",
+    "crates/nexora-backend-api",
+    "crates/nexora-examples",
+]
+
+[workspace.dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+async-trait = "0.1"
+thiserror = "2.0"
+schemars = "1.0"
+tokio = { version = "1", features = ["full"] }
+futures = "0.3"
+reqwest = { version = "0.12", features = ["json", "stream"] }
+tracing = "0.1"
+uuid = { version = "1", features = ["v4"] }
+chrono = { version = "0.4", features = ["serde"] }
+pin-project-lite = "0.2"
+clap = { version = "4", features = ["derive"] }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+anyhow = "1"
+
+[dependencies]
+nexora-core = { path = "crates/nexora-core" }
+nexora-graph = { path = "crates/nexora-graph" }
+nexora-tools = { path = "crates/nexora-tools" }
+nexora-backend-ollama = { path = "crates/nexora-backend-ollama" }
+nexora-backend-api = { path = "crates/nexora-backend-api" }
+clap = { workspace = true }
+tokio = { workspace = true }
+anyhow = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = "symbols"
+overflow-checks = false
+debug = false
+
+[profile.dev]
+opt-level = 0
+debug = true
+incremental = true
+
+[profile.dev.package."*"]
+opt-level = 2
